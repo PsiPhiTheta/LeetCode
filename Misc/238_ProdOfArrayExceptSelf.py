@@ -1,19 +1,20 @@
-import numpy as np
-
 class Solution:
     def productExceptSelf(self, nums):
         """
         :type nums: List[int]
         :rtype: List[int]
         """
-        
         result = []
         length = len(nums)
         
-        for i in range(length):
-            temp = np.asarray(nums)
-            temp = np.delete(temp, i)
-            product = int(np.prod(temp))
-            result.append(product)
+        temp = 1
+        for i in range(0,length):
+            result.append(temp)
+            temp = temp * nums[i]
+        
+        temp = 1
+        for i in range(length-1,-1,-1):
+            result[i] = result[i] * temp
+            temp = temp * nums[i]
             
-        return result #note passes 16/17 test cases (brute force approach)
+        return result #O(1) space, O(n) time
