@@ -23,7 +23,6 @@ class Solution {
                 }
             }
         }
-
         if (even_total>odd_total) {
             return even_total;
         }
