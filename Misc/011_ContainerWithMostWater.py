@@ -4,17 +4,15 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        vol = []
-        prev_vol = 0
         max_vol = 0
+        start = 0
+        end = len(height)-1
         
-        for start in range(0, len(height)-1):
-            for end in range(start+1, len(height)):
-                dist = (end-start)
-                cur_vol = min(height[start], height[end])*dist
-                if (cur_vol > max_vol):
-                    max_vol = cur_vol
-                    
-        return max_vol
-        
-        #note this is an O(n^2) solution
+        while (start < end):
+            max_vol = max(max_vol, min(height[start], height[end])*(end-start))
+            if (height[start] < height[end]): #avoid being limitted by shortest line
+                start += 1
+            else:
+                end -= 1
+            
+        return max_vol #this is an O(n) solution 
