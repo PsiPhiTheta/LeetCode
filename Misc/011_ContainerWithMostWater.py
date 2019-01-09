@@ -15,4 +15,4 @@ class Solution(object):
             else:
                 end -= 1
             
-        return max_vol #this is an O(n) solution 
+        return max_vol
