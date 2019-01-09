@@ -5,4 +5,16 @@ class Solution(object):
         :type n: int
         :rtype: float
         """
-        return x**n # this is cheating though
+        out = 1
+        
+        if (n < 0):
+            x = 1/x
+            n = -n
+        
+        while n:
+            if (n % 2):
+                out *= x
+            x *= x
+            n >>= 1
+            
+        return out # this is the iterative solution
