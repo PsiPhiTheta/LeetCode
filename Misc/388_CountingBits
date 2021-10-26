@@ -1,0 +1,13 @@
+class Solution(object):
+    def countBits(self, n):
+        """
+        :type n: int
+        :rtype: List[int]
+        """
+        ans=[]
+        for i in range(n+1):
+            ones = str(bin(i)[2:])
+            print(ones)
+            ones = ones.replace('0','')
+            ans.append(len(ones))
+        return ans
